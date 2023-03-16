@@ -10,6 +10,6 @@ export default {
 
 <template>
     <section id="projects-main" class="">
-        <ProjectCard v-for="project in projects" :key="project.id" :project="project"></ProjectCard>
+        <ProjectCard class="my-5" v-for="project in projects" :key="project.id" :project="project"></ProjectCard>
     </section>
 </template>

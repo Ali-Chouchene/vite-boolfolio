@@ -27,7 +27,10 @@ export default {
         <div class="card-body">
             <h5 class="card-title">{{ project.name }}</h5>
             <p class="card-text">{{ project.description }}</p>
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            <div class="d-flex justify-content-end">
+                <router-link :to="{ name: 'project-detail', params: { id: project.id } }" class="btn btn-secondary">More
+                    Info</router-link>
+            </div>
         </div>
         <div class="card-footer">
             <time><small>published: </small>{{ projectDate }}</time>
