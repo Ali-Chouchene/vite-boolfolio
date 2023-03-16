@@ -1,33 +1,28 @@
 <script>
-
+import axios from 'axios';
+import ProjectsMain from '../projects/ProjectsMain.vue'
+const apiBase = 'http://127.0.0.1:8000/api/';
 export default {
-    name: 'HomePage',
-}
+    name: 'App',
+    components: { ProjectsMain },
+    data: () => ({
+        projects: []
+    }),
+    methods: {
+        fetchApi() {
+            axios.get(apiBase + 'projects').then(res => {
+                this.projects = res.data;
+            });
+        }
+    },
+    created() {
+        this.fetchApi();
+    }
+};
 </script>
 
 <template>
-    <section id="home-page">
-        <div class="container">
-            <h2 class="fs-4 text-secondary my-4">
-                {{ __('Dashboard') }}
-            </h2>
-            <div class="row justify-content-center">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header">{{ __('User Dashboard') }}</div>
-
-                        <div class="card-body">
-                            @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                            @endif
-
-                            {{ __('You are logged in!') }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="container py-5">
+        <ProjectsMain :projects="projects"></ProjectsMain>
+    </div>
 </template>
