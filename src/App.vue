@@ -22,11 +22,23 @@ export default {
 };
 </script>
 
-<template>
+<template >
   <AppHeader></AppHeader>
-  <main class="container">
-    <ProjectsMain :projects="projects"></ProjectsMain>
+  <main id="base">
+    <RouterView />
   </main>
 </template>
 
-<style scoped></style>
+<style lang="scss">
+#base {
+  background-image: url(../public/bg.jpg);
+  background-size: contain;
+  background-position: center;
+  margin: 0 auto;
+}
+</style>
+
+
+ <!-- <div class="container py-5">
+  <ProjectsMain :projects="projects"></ProjectsMain>
+</div> -->

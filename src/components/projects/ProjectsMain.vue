@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-    <section id="projects-main" class="my-5">
+    <section id="projects-main" class="">
         <ProjectCard v-for="project in projects" :key="project.id" :project="project"></ProjectCard>
     </section>
 </template>
